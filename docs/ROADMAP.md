@@ -207,10 +207,12 @@ copyrighted game files.
 - Phase 1 is complete: the public manifest independently identifies the supported
   ISO and base XEX, including hashes, executable identifiers, layout summary,
   compression state, and aggregate imports.
-- Phase 2 baseline has started on pinned Xenia Canary `02d2cb5`. The base game
-  reproducibly reaches its legal-warning sequence and sustained opening-movie
-  playback under D3D12/XAudio2. Title/profile, saves, menus, and gameplay remain
-  unverified.
+- Phase 2 baseline on pinned Xenia Canary `02d2cb5` now reaches the title and
+  profile gate, campaign cinematic, character selection, Helena's opening beach
+  dialogue, and the Day 1 Morning island interface under D3D12/XAudio2. Xbox
+  controller input and title-specific save creation are verified. Save reload,
+  activity completion, audio correctness, and detailed renderer behavior remain
+  open before the Phase 2 exit gate.
 
 ## Explicit non-goals for the bootstrap stage
 

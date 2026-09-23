@@ -59,3 +59,14 @@ channel.
 Reason: the pinned archive is independently hashable and repeatable. A newer
 source build may be added as a second oracle later, but it should not silently
 replace the baseline.
+
+## 2026-09-23 — Helena route for the Phase 2 smoke test
+
+Decision: use the local-profile Main Game route through Helena's character
+selection, opening beach dialogue, and the Day 1 Morning island interface as
+the initial deterministic behavioral comparison path.
+
+Reason: this route was observed end-to-end on the pinned oracle, exercises
+profile input and title-specific save creation, and reaches in-engine rendering
+without depending on online services. Save/profile data and all captures remain
+ignored local evidence.
