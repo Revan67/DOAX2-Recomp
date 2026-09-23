@@ -15,7 +15,13 @@
       "repository": "https://github.com/hedge-dev/XenonRecomp.git",
       "revision": null,
       "purpose": "Reference analyzer; not part of the initial build path"
+    },
+    "xenia-canary-baseline": {
+      "releaseRepository": "https://github.com/xenia-canary/xenia-canary-releases",
+      "release": "02d2cb5",
+      "asset": "xenia_canary_windows_.zip",
+      "assetSha256": "1adbb2c1c69cbd5fabadb43d03b4c407db3b245de922e11aba699867c68d0796",
+      "purpose": "Pinned behavioral oracle; local binary and runtime state are not distributed"
     }
   }
 }
-

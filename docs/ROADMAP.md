@@ -207,6 +207,10 @@ copyrighted game files.
 - Phase 1 is complete: the public manifest independently identifies the supported
   ISO and base XEX, including hashes, executable identifiers, layout summary,
   compression state, and aggregate imports.
+- Phase 2 baseline has started on pinned Xenia Canary `02d2cb5`. The base game
+  reproducibly reaches its legal-warning sequence and sustained opening-movie
+  playback under D3D12/XAudio2. Title/profile, saves, menus, and gameplay remain
+  unverified.
 
 ## Explicit non-goals for the bootstrap stage
 

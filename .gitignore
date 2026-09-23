@@ -43,6 +43,7 @@ third_party/
 tools/extract-xiso/
 tools/rexglue-sdk/
 tools/XenonRecomp/
+tools/xenia-canary/
 
 # Runtime state, captures, logs, and user data
 logs/
@@ -70,4 +71,3 @@ Thumbs.db
 Desktop.ini
 *.swp
 *~
-

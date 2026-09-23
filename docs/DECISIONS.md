@@ -48,3 +48,14 @@ Decision: support the unmodified disc executable identified by public manifest
 Reason: a single verified baseline minimizes variables during CPU and runtime
 bring-up. Updated executables will be treated as separate targets if later
 evidence shows they are necessary.
+
+## 2026-09-23 — Pinned Xenia behavioral oracle
+
+Decision: use official Xenia Canary binary release `02d2cb5` as the first
+reproducible behavioral oracle, while explicitly recording that newer Canary
+source revisions existed without attached Windows binaries in the same release
+channel.
+
+Reason: the pinned archive is independently hashable and repeatable. A newer
+source build may be added as a second oracle later, but it should not silently
+replace the baseline.
