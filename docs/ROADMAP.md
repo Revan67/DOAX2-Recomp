@@ -174,10 +174,12 @@ Tasks:
 
 1. Add user-facing configuration, controller remapping, display modes, and safe
    defaults without changing game logic by default.
-2. Package only redistributable project components.
-3. Require users to install from their own verified disc image.
-4. Add automated build, repository hygiene, smoke, and packaging checks.
-5. Document known issues, supported hashes, provenance, licenses, and clean-room
+2. Add a compatibility-controlled option to skip the otherwise unskippable
+   Team Ninja startup logo.
+3. Package only redistributable project components.
+4. Require users to install from their own verified disc image.
+5. Add automated build, repository hygiene, smoke, and packaging checks.
+6. Document known issues, supported hashes, provenance, licenses, and clean-room
    contribution rules.
 
 Exit gate: a clean machine can build the project, install from a supported

@@ -32,6 +32,8 @@ Observed checkpoints:
 1. Xenia recognized Title ID `544307D2` and version `0.0.0.3`.
 2. The game reached and animated its copyright/legal warning sequence.
 3. The opening movie began and continued rendering for several minutes.
+   The Team Ninja startup logo did not respond to controller skip input and is
+   treated as unskippable original behavior in the oracle baseline.
 4. The title screen rendered and accepted input from an attached Xbox Series
    controller through Xenia's `any` input backend.
 5. The game required a local Xenia profile before campaign progression.
@@ -59,6 +61,9 @@ Not yet verified:
   dialogue, and island interface.
 - Whether the first-start black transition depends on cold shader caches,
   profile initialization, or another state variable.
+
+Recomp enhancement backlog: allow the Team Ninja startup logo to be skipped,
+while retaining the original unskippable behavior as a compatibility option.
 
 ## Deterministic smoke-test route
 
