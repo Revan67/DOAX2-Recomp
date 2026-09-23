@@ -220,7 +220,9 @@ copyrighted game files.
 - Phase 3 strict ReXGlue translation now completes deterministically without
   force mode after declaring three missed compiler-generated entry points. A
   repeat run produced 249 unchanged files and no unresolved, unsupported, or
-  fatal generated markers. Startup-call mapping is the next active task.
+  fatal generated markers. The first direct startup layer from `xstart` is
+  classified; transitive mapping below the game-owned dispatcher candidate is
+  the next active task.
 
 ## Explicit non-goals for the bootstrap stage
 

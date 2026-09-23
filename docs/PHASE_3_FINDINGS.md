@@ -52,3 +52,9 @@ while keeping its log and generated translations in ignored local directories.
 Strict translation is now deterministic. The next task is to map the executable
 entry point and its transitive startup calls, identify the first kernel/XAM
 boundary, and select the smallest boot-critical slice for the native runtime.
+
+The first direct layer from `xstart` at `0x82784C18` is now mapped in
+`docs/STARTUP_MAP.md`. It identifies nine game/CRT callees plus direct
+`DbgPrint` and `XamLoaderTerminateTitle` boundaries. The next active slice is
+the five direct descendants of the first game-owned dispatcher candidate at
+`0x8258DD38`.
