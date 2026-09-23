@@ -1,0 +1,67 @@
+# Legally obtained source media and extracted proprietary game content
+*.iso
+*.xex
+*.xexp
+*.zar
+*.pak
+*.wad
+game/
+game_data/
+extracted/
+disc/
+content/
+title_updates/
+dlc/
+
+# Recompiler output and generated translation units
+generated/
+recompiled/
+ppc/
+shader_cache/
+pipeline_cache/
+*.obj
+*.o
+*.a
+*.lib
+*.dll
+*.exe
+*.pdb
+
+# Build systems and local dependencies
+build/
+build-*/
+out/
+.vs/
+.vscode/
+CMakeUserPresets.json
+CMakeCache.txt
+CMakeFiles/
+_deps/
+vendor/
+third_party/
+
+# Runtime state, captures, logs, and user data
+logs/
+captures/
+crash_dumps/
+saves/
+profiles/
+cache/
+*.log
+*.dmp
+*.trace
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.local.toml
+*.local.json
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+Desktop.ini
+*.swp
+*~
+
