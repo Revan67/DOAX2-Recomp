@@ -23,6 +23,12 @@ No file listing or game content is tracked.
 - Entry point: `0x82784C18`
 - Code base observed by ReXGlue: `0x82410000`
 - XEX optional-header count: 16
+- Expanded image size: 32,047,104 bytes
+- Encryption: normal
+- Compression: basic
+- Page descriptors: 489
+- Section descriptors: 103 code, 312 data, 74 read-only data
+- Imports: 448 symbols across two libraries (`xam.xex` and `xboxkrnl.exe`)
 
 The title, media, version, image, and code-base values were measured from the
 local XEX using pinned ReXGlue revision
@@ -47,9 +53,8 @@ update has been applied. Title-update investigation is deferred until the base
 build reaches a measurable boot checkpoint or a documented compatibility reason
 requires a separate updated target.
 
-## Remaining Phase 1 items
+## Phase 1 exit status
 
-- Record sanitized import-library counts.
-- Document XEX section counts and compression state without publishing binary
-  contents or bulk address databases.
-- Verify the public manifest using an independent rerun of the metadata scripts.
+Complete. The public manifest identifies the supported disc and executable,
+the metadata scripts reproduce its hashes and XEX facts, and no extracted or
+generated content is tracked. Raw reports remain under ignored local evidence.

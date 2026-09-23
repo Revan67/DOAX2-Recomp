@@ -204,6 +204,9 @@ copyrighted game files.
   verified as Title ID `544307D2`, Media ID `21B9628E`, version `0.0.0.3`.
 - Pinned ReXGlue analysis reaches validation with two unresolved calls; generated
   translations remain local and ignored.
+- Phase 1 is complete: the public manifest independently identifies the supported
+  ISO and base XEX, including hashes, executable identifiers, layout summary,
+  compression state, and aggregate imports.
 
 ## Explicit non-goals for the bootstrap stage
 

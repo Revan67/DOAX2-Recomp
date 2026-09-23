@@ -40,3 +40,11 @@ a reference analyzer, but do not combine two translation paths during bootstrap.
 Reason: narrow tool responsibilities improve auditability and reproducibility,
 while a single primary runtime avoids multiplying unknowns during initial boot.
 
+## 2026-09-23 — Base disc is the first supported target
+
+Decision: support the unmodified disc executable identified by public manifest
+`doax2-disc-base-5a642963` before evaluating title updates.
+
+Reason: a single verified baseline minimizes variables during CPU and runtime
+bring-up. Updated executables will be treated as separate targets if later
+evidence shows they are necessary.

@@ -16,6 +16,17 @@
   "titleId": "544307D2",
   "mediaId": "21B9628E",
   "version": "0.0.0.3",
+  "xex": {
+    "imageBase": "0x82000000",
+    "entryPoint": "0x82784C18",
+    "imageSizeBytes": 32047104,
+    "encryption": "normal",
+    "compression": "basic",
+    "optionalHeaderCount": 16,
+    "pageDescriptorCount": 489,
+    "importLibraryCount": 2,
+    "importSymbolCount": 448
+  },
   "titleUpdate": null,
   "verificationStatus": "base-disc-and-executable-verified"
 }
