@@ -21,3 +21,22 @@ until stable gameplay exists.
 Reason: it matches the current development environment and reduces the number
 of variables during CPU, runtime, and GPU bring-up.
 
+## 2026-09-22 — Public-repository boundary
+
+Decision: enforce a conservative public-repository policy with both ignore rules
+and a tracked-file hygiene script. Game files, generated translations, raw
+reverse-engineering artifacts, captures, logs, and proprietary materials remain
+local and untracked.
+
+Reason: ignored files can still be force-added accidentally, so publication
+safety requires an explicit pre-push validation gate as well as `.gitignore`.
+
+## 2026-09-22 — Initial toolchain split
+
+Decision: use XboxDev `extract-xiso` solely for local disc extraction and
+ReXGlue as the primary recompilation/runtime path. Keep XenonRecomp available as
+a reference analyzer, but do not combine two translation paths during bootstrap.
+
+Reason: narrow tool responsibilities improve auditability and reproducibility,
+while a single primary runtime avoids multiplying unknowns during initial boot.
+

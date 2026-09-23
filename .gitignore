@@ -10,6 +10,7 @@ game_data/
 extracted/
 disc/
 content/
+Dead or Alive Xtreme 2/
 title_updates/
 dlc/
 
@@ -39,6 +40,9 @@ CMakeFiles/
 _deps/
 vendor/
 third_party/
+tools/extract-xiso/
+tools/rexglue-sdk/
+tools/XenonRecomp/
 
 # Runtime state, captures, logs, and user data
 logs/
@@ -47,6 +51,8 @@ crash_dumps/
 saves/
 profiles/
 cache/
+evidence/local/
+manifests/local/
 *.log
 *.dmp
 *.trace

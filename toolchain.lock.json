@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "tools": {
+    "extract-xiso": {
+      "repository": "https://github.com/XboxDev/extract-xiso.git",
+      "revision": "3f5b62cfe68f000b0e3c8a30104973f3a297948e",
+      "purpose": "Local extraction of a user-supplied Xbox disc image"
+    },
+    "rexglue-sdk": {
+      "repository": "https://github.com/rexglue/rexglue-sdk.git",
+      "revision": "c94f5ebdcb3c9d1a460ca48e04f9758448f8d518",
+      "purpose": "Primary Xbox 360 static recompilation runtime and toolkit"
+    },
+    "XenonRecomp": {
+      "repository": "https://github.com/hedge-dev/XenonRecomp.git",
+      "revision": null,
+      "purpose": "Reference analyzer; not part of the initial build path"
+    }
+  }
+}
+

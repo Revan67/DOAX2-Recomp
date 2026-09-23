@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "manifestId": "doax2-disc-base-5a642963",
+  "title": "Dead or Alive Xtreme 2",
+  "platform": "Xbox 360",
+  "source": {
+    "fileNameHint": "Dead or Alive Xtreme 2.iso",
+    "sizeBytes": 7834892288,
+    "sha256": "5a642963dd43b212355dde562878f80e306bc5a18a5ecccf458930c616f12036"
+  },
+  "verifiedExecutable": {
+    "fileNameHint": "default.xex",
+    "sizeBytes": 15749120,
+    "sha256": "c4a14853e1f7af951be34f380604113703638780b36d5e74e674fe7431992870"
+  },
+  "titleId": "544307D2",
+  "mediaId": "21B9628E",
+  "version": "0.0.0.3",
+  "titleUpdate": null,
+  "verificationStatus": "base-disc-and-executable-verified"
+}

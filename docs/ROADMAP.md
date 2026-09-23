@@ -193,6 +193,18 @@ copyrighted game files.
 5. Establish the pinned Xenia baseline and deterministic smoke-test route.
 6. Write the Phase 1 findings before generating any translated code.
 
+## Current progress
+
+- Phase 0 repository boundary, layout, baseline template, decision log, public
+  manifest policy, and hygiene automation are implemented.
+- The source ISO has been measured at 7,834,892,288 bytes with SHA-256
+  `5a642963dd43b212355dde562878f80e306bc5a18a5ecccf458930c616f12036`.
+- Extraction and executable verification remain open Phase 1 work.
+- The disc was extracted locally into ignored storage. The base executable is
+  verified as Title ID `544307D2`, Media ID `21B9628E`, version `0.0.0.3`.
+- Pinned ReXGlue analysis reaches validation with two unresolved calls; generated
+  translations remain local and ignored.
+
 ## Explicit non-goals for the bootstrap stage
 
 - Distributing game files, keys, SDK components, title updates, or DLC.
@@ -200,4 +212,3 @@ copyrighted game files.
 - Importing Rumble Roses addresses, generated translations, or undocumented
   patches into this project.
 - Adding enhancements before the original behavior is measurable and stable.
-
