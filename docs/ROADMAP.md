@@ -192,8 +192,8 @@ copyrighted game files.
 2. Record the ISO hash and non-content metadata.
 3. Select and pin the extraction/recompilation toolchain.
 4. Extract into an ignored directory and create the executable/content inventory.
-5. Establish the pinned Xenia baseline and deterministic smoke-test route.
-6. Write the Phase 1 findings before generating any translated code.
+5. Extend static analysis from the pinned Phase 1 toolchain proof.
+6. Enumerate unsupported and ambiguous translation constructs.
 
 ## Current progress
 
@@ -209,14 +209,14 @@ copyrighted game files.
 - Phase 1 is complete: the public manifest independently identifies the supported
   ISO and base XEX, including hashes, executable identifiers, layout summary,
   compression state, and aggregate imports.
-- Phase 2 baseline on pinned Xenia Canary `02d2cb5` now reaches the title and
+- Phase 2 is complete on pinned Xenia Canary `02d2cb5`. The baseline reaches the title and
   profile gate, campaign cinematic, character selection, Helena's opening beach
   dialogue, and the Day 1 Morning island interface under D3D12/XAudio2. Xbox
   controller input, multiple Day 1 activities, title-specific autosave creation,
   clean Poolside exit, save reload after emulator restart, the Day 1 overnight
-  boundary, and progression through Day 2 Daytime are verified. Audio
-  correctness and detailed renderer behavior remain open before the Phase 2
-  exit gate.
+  boundary, and progression through Day 2 Daytime are verified. No audio,
+  renderer, or timing issues were observed on this bounded route. The active
+  project focus is now Phase 3 toolchain proof and static analysis.
 
 ## Explicit non-goals for the bootstrap stage
 

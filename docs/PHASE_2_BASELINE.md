@@ -58,13 +58,14 @@ as a possible first-run loading or shader-cache transition until it can be
 reproduced under controlled cache conditions; it is not currently classified as
 a deterministic hang.
 
-Not yet verified:
+No audio corruption, visible rendering defects, or noticeable timing/frame-
+pacing problems were observed along the tested route through Day 2 Daytime.
+This is a bounded behavioral result, not a claim of whole-game compatibility.
 
-- Audio correctness; XAudio2 initialized, but audio was not evaluated.
-- Frame timing or renderer correctness beyond the observed frontend, beach
-  dialogue, activities, overnight transition, and Day 2 island interface.
-- Whether the first-start black transition depends on cold shader caches,
-  profile initialization, or another state variable.
+Remaining investigation item: determine whether the first-start black
+transition depends on cold shader caches, profile initialization, or another
+state variable. It did not recur during the completed smoke-test route and is
+not an exit-gate blocker.
 
 Recomp enhancement backlog: allow the Team Ninja startup logo to be skipped,
 while retaining the original unskippable behavior as a compatibility option.
@@ -85,9 +86,10 @@ The current repeatable route is:
 9. Confirm the ignored portable content root contains title-specific save
    containers for `544307D2`.
 
-The autosave/reload and full-day progression portions of this route are
-verified. The next extension is to record timing, audio, and renderer
-discrepancies for each activity used in the smoke test.
+The route is repeatable through autosave, clean exit, reload, a full-day
+boundary, and Day 2 progression. No audio, renderer, or timing discrepancy was
+reported along this bounded route. The Phase 2 behavioral-oracle exit gate is
+therefore satisfied.
 
 Raw configurations, caches, logs, screenshots, and portable content remain in
 ignored `evidence/local/` and must not be committed or attached publicly.
