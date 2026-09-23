@@ -3,7 +3,7 @@
 [![Project phase](https://img.shields.io/badge/phase-3%20static%20analysis-2563eb)](docs/ROADMAP.md)
 [![Target](https://img.shields.io/badge/target-Windows%20x86--64-0078d4)](docs/ROADMAP.md)
 [![Launcher](https://img.shields.io/badge/launcher-not%20yet%20playable-lightgrey)](docs/ROADMAP.md)
-[![Last commit](https://img.shields.io/github/last-commit/Revan67/DAOX2)](https://github.com/Revan67/DAOX2/commits/main)
+[![Last commit](https://img.shields.io/github/last-commit/Revan67/DOAX2-Recomp)](https://github.com/Revan67/DOAX2-Recomp/commits/main)
 [![Public repository policy](https://img.shields.io/badge/repository-clean--room%20boundary-2ea44f)](LEGAL.md)
 
 An experimental native recompilation project for the Xbox 360 release of
