@@ -6,7 +6,9 @@ param(
     [ValidateRange(0, 8)]
     [int]$Depth = 2,
 
-    [string]$GeneratedPath = 'manifests/local/bootstrap/generated/default'
+    [string]$GeneratedPath = 'manifests/local/bootstrap/generated/default',
+
+    [switch]$ImportsOnly
 )
 
 $ErrorActionPreference = 'Stop'
@@ -43,30 +45,43 @@ if (-not $graph.ContainsKey($RootFunction)) {
 }
 
 $queue = [System.Collections.Generic.Queue[object]]::new()
-$queue.Enqueue([pscustomobject]@{ Function = $RootFunction; Level = 0 })
+$queue.Enqueue([pscustomobject]@{
+    Function = $RootFunction
+    Level = 0
+    Path = [string[]]@($RootFunction)
+})
 $visited = @{}
 
 while ($queue.Count -ne 0) {
     $item = $queue.Dequeue()
     $function = [string]$item.Function
     $level = [int]$item.Level
+    $path = [string[]]$item.Path
     if ($visited.ContainsKey($function) -and $visited[$function] -le $level) {
         continue
     }
     $visited[$function] = $level
 
-    $indent = '  ' * $level
-    Write-Output "$indent$function"
+    if (-not $ImportsOnly) {
+        Write-Output ($path -join ' -> ')
+    }
 
     if ($level -ge $Depth -or -not $graph.ContainsKey($function)) {
         continue
     }
 
     foreach ($callee in $graph[$function] | Sort-Object) {
+        $calleePath = [string[]]($path + $callee)
         if ($callee -like 'sub_*') {
-            $queue.Enqueue([pscustomobject]@{ Function = $callee; Level = $level + 1 })
+            $queue.Enqueue([pscustomobject]@{
+                Function = $callee
+                Level = $level + 1
+                Path = $calleePath
+            })
+        } elseif ($ImportsOnly) {
+            Write-Output ($calleePath -join ' -> ')
         } else {
-            Write-Output "$indent  $callee"
+            Write-Output (($calleePath -join ' -> '))
         }
     }
 }

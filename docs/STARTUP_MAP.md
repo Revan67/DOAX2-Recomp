@@ -68,14 +68,15 @@ final presentation stage.
 
 `scripts/summarize_rexglue_call_slice.ps1` can reproduce bounded call slices
 from ignored local generated output without writing or publishing a call
-database.
+database. `docs/INPUT_BOUNDARY.md` records the resulting minimal controller
+contract for native bring-up.
 
 ## Open questions
 
 - Resolve and classify the runtime-populated callback tables used by
   `0x82786798` and `0x827866B8`.
-- Map the controller-state path beneath `0x8258E000` and determine the minimal
-  input ABI required for a native smoke test.
+- Confirm the guest structure layouts and result codes used by the three input
+  imports before implementing their host shims.
 - Separate graphics command construction from final presentation and identify
   the first audio boundary used during boot.
 - Determine the earliest observable checkpoint suitable for a headless native

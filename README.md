@@ -23,7 +23,8 @@ The verified source target is identified by public hashes and metadata, but the
 source game and generated translations are never distributed here. See the
 [roadmap](docs/ROADMAP.md), [Phase 1 findings](docs/PHASE_1_FINDINGS.md),
 [Phase 2 baseline](docs/PHASE_2_BASELINE.md), and
-[Phase 3 findings](docs/PHASE_3_FINDINGS.md).
+[Phase 3 findings](docs/PHASE_3_FINDINGS.md), including the bounded
+[controller input boundary](docs/INPUT_BOUNDARY.md).
 
 ## What this repository will contain
 

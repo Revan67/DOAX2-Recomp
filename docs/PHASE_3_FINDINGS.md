@@ -66,3 +66,8 @@ command-buffer and swap boundaries. The middle stage remains the broad main
 game-update region. These slices can be reproduced locally with
 `scripts/summarize_rexglue_call_slice.ps1`; no generated translation or bulk
 call database is published.
+
+The controller branch is now narrowed to three XAM imports: capability query,
+state polling, and vibration output. `docs/INPUT_BOUNDARY.md` records the proven
+paths and the minimal smoke-test contract while leaving guest structure-layout
+verification for runtime bring-up.
