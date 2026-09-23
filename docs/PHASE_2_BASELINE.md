@@ -47,7 +47,9 @@ Observed checkpoints:
     newer timestamps, consistent with automatic saving during progression.
 11. Choosing Quit Game from Poolside, closing Xenia, relaunching the same pinned
     build, and entering Main Game successfully loaded the existing vacation.
-12. The emulator window remained responsive throughout the observation.
+12. The resumed vacation completed the Day 1 overnight boundary and progressed
+    through Day 2 Daytime with the island/activity interface still rendering.
+13. The emulator window remained responsive throughout the observation.
 
 One first campaign start appeared to remain black for more than 30 seconds
 while Xenia stayed responsive and consumed roughly one CPU core. Repeating the
@@ -59,9 +61,8 @@ a deterministic hang.
 Not yet verified:
 
 - Audio correctness; XAudio2 initialized, but audio was not evaluated.
-- Completion of a full in-game day.
 - Frame timing or renderer correctness beyond the observed frontend, beach
-  dialogue, and island interface.
+  dialogue, activities, overnight transition, and Day 2 island interface.
 - Whether the first-start black transition depends on cold shader caches,
   profile initialization, or another state variable.
 
@@ -84,9 +85,9 @@ The current repeatable route is:
 9. Confirm the ignored portable content root contains title-specific save
    containers for `544307D2`.
 
-The autosave/reload portion of this route is verified. The next extension is to
-complete a full in-game day and record timing, audio, and renderer discrepancies
-for each activity used in the smoke test.
+The autosave/reload and full-day progression portions of this route are
+verified. The next extension is to record timing, audio, and renderer
+discrepancies for each activity used in the smoke test.
 
 Raw configurations, caches, logs, screenshots, and portable content remain in
 ignored `evidence/local/` and must not be committed or attached publicly.
