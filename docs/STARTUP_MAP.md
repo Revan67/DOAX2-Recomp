@@ -24,7 +24,7 @@ XAM to terminate the title.
 | `0x82786798` | Single indirect startup callback pass | Indirect call target remains runtime-selected |
 | `0x827866B8` | Multi-stage indirect startup callback pass | Contains three runtime-selected calls |
 | `0x827866A8` | No-op startup hook | Returns without further calls in the supported build |
-| `0x8258DD38` | First game-owned main-dispatch candidate | Calls five game-owned routines before returning a result |
+| `0x8258DD38` | Persistent game-owned dispatcher | Runs two one-time initialization stages, then loops across three per-frame stages |
 | `0x829EFCC0` | Post-dispatch CRT cleanup wrapper | Tail-dispatches to `0x829EFB40` |
 
 Direct imports used by `xstart` itself are `DbgPrint` and
@@ -40,14 +40,43 @@ The initial native boot slice must include:
    return behavior, executable privilege/configuration queries, AV-pack and
    language queries, debug printing, and title termination.
 3. Function-dispatch support for the indirect initializer/callback targets.
-4. The transitive initialization path below `0x8258DD38`, which is the next
-   mapping target and is not yet claimed to be the final game main loop.
+4. The initialization and frame-stage descendants below `0x8258DD38`.
+
+## Game dispatcher structure
+
+`0x8258DD38` has the following stable control-flow shape:
+
+1. `0x8258DD60` — one-time platform/system initialization. Within one additional
+   call layer it reaches video-mode detection, filesystem-cache configuration,
+   volume/file queries, event creation, and critical-section synchronization.
+2. `0x8258E1C0` — one-time game-system initialization. Deeper descendants
+   reach thread creation/resume and affinity, memory management, sign-in-state
+   inspection, and the dirty-disc error UI.
+3. `0x8258E000` — recurring timing/input and pre-update stage. Its bounded call
+   slice reaches the performance-frequency query and XAM controller
+   capability, state, and vibration boundaries.
+4. `0x8258E500` — second and largest recurring stage. Its much broader game
+   graph includes content, profile, networking, and audio-facing work; it is
+   conservatively classified as the main game-update stage.
+5. `0x8258E0D8` — final recurring presentation stage, followed by a branch back
+   to `0x8258E000`. Its bounded slice reaches video-mode queries and the system
+   command-buffer, display-persistence, and swap boundaries.
+
+These labels describe host-facing evidence, not a complete reconstruction of
+the game engine. In particular, rendering work may be prepared before the
+final presentation stage.
+
+`scripts/summarize_rexglue_call_slice.ps1` can reproduce bounded call slices
+from ignored local generated output without writing or publishing a call
+database.
 
 ## Open questions
 
 - Resolve and classify the runtime-populated callback tables used by
   `0x82786798` and `0x827866B8`.
-- Map the five direct descendants of `0x8258DD38` and identify the first
-  filesystem, window, graphics, audio, and input boundaries.
+- Map the controller-state path beneath `0x8258E000` and determine the minimal
+  input ABI required for a native smoke test.
+- Separate graphics command construction from final presentation and identify
+  the first audio boundary used during boot.
 - Determine the earliest observable checkpoint suitable for a headless native
   smoke test.

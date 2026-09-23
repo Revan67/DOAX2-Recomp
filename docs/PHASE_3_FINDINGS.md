@@ -56,5 +56,13 @@ boundary, and select the smallest boot-critical slice for the native runtime.
 The first direct layer from `xstart` at `0x82784C18` is now mapped in
 `docs/STARTUP_MAP.md`. It identifies nine game/CRT callees plus direct
 `DbgPrint` and `XamLoaderTerminateTitle` boundaries. The next active slice is
-the five direct descendants of the first game-owned dispatcher candidate at
-`0x8258DD38`.
+the subsystem boundary below the persistent game dispatcher at `0x8258DD38`.
+That dispatcher is now known to run two one-time initialization stages followed
+by a three-stage recurring frame loop. Its platform-init branch reaches video,
+filesystem, event, and synchronization imports within one additional layer.
+Bounded descendant slices also locate controller polling and timing in the
+first recurring stage, while the final recurring stage reaches the video
+command-buffer and swap boundaries. The middle stage remains the broad main
+game-update region. These slices can be reproduced locally with
+`scripts/summarize_rexglue_call_slice.ps1`; no generated translation or bulk
+call database is published.
