@@ -217,6 +217,10 @@ copyrighted game files.
   boundary, and progression through Day 2 Daytime are verified. No audio,
   renderer, or timing issues were observed on this bounded route. The active
   project focus is now Phase 3 toolchain proof and static analysis.
+- Phase 3 strict ReXGlue translation now completes deterministically without
+  force mode after declaring three missed compiler-generated entry points. A
+  repeat run produced 249 unchanged files and no unresolved, unsupported, or
+  fatal generated markers. Startup-call mapping is the next active task.
 
 ## Explicit non-goals for the bootstrap stage
 

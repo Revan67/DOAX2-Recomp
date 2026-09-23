@@ -1,0 +1,7 @@
+# Minimal ReXGlue discovery hints for manifest doax2-disc-base-5a642963.
+# These are compiler-generated code entry points missed by automatic discovery.
+
+[functions]
+"0x8271F580" = { name = "sub_8271F580" }
+"0x82785670" = { name = "sub_82785670" }
+"0x829B96A8" = { name = "sub_829B96A8" }
