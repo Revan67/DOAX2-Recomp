@@ -42,11 +42,11 @@ foreach ($path in $tracked) {
 $sensitivePatterns = @(
     '[A-Za-z]:[\\/]+Users[\\/]+',
     'BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY',
-    '(?i)(password|passwd|secret|api[_-]?key|access[_-]?token)\s*[:=]\s*[^\s$]'
+    '(password|passwd|secret|api[_-]?key|access[_-]?token)\s*[:=]\s*[^\s$]'
 )
 
 foreach ($pattern in $sensitivePatterns) {
-    $hits = @(git grep -n -I -E $pattern -- 2>$null)
+    $hits = @(git grep -n -I -i -E $pattern -- 2>$null)
     if ($LASTEXITCODE -eq 0) {
         foreach ($hit in $hits) {
             $violations.Add("Sensitive text pattern: $hit")
@@ -60,4 +60,3 @@ if ($violations.Count -ne 0) {
 }
 
 Write-Host "Repository hygiene check passed for $($tracked.Count) tracked files."
-
