@@ -43,7 +43,11 @@ Observed checkpoints:
    island/activity interface.
 9. Xenia created title-specific `rds.dat` and `ups.dat` save containers beneath
    the ignored portable content root.
-10. The emulator window remained responsive throughout the observation.
+10. Several Day 1 activities were completed and the save containers received
+    newer timestamps, consistent with automatic saving during progression.
+11. Choosing Quit Game from Poolside, closing Xenia, relaunching the same pinned
+    build, and entering Main Game successfully loaded the existing vacation.
+12. The emulator window remained responsive throughout the observation.
 
 One first campaign start appeared to remain black for more than 30 seconds
 while Xenia stayed responsive and consumed roughly one CPU core. Repeating the
@@ -55,8 +59,7 @@ a deterministic hang.
 Not yet verified:
 
 - Audio correctness; XAudio2 initialized, but audio was not evaluated.
-- Save reload after process restart.
-- Completion of an activity or a full in-game day.
+- Completion of a full in-game day.
 - Frame timing or renderer correctness beyond the observed frontend, beach
   dialogue, and island interface.
 - Whether the first-start black transition depends on cold shader caches,
@@ -81,8 +84,9 @@ The current repeatable route is:
 9. Confirm the ignored portable content root contains title-specific save
    containers for `544307D2`.
 
-The next extension is to restart the emulator, load the new save, enter and
-complete one short activity, and record timing/audio/renderer discrepancies.
+The autosave/reload portion of this route is verified. The next extension is to
+complete a full in-game day and record timing, audio, and renderer discrepancies
+for each activity used in the smoke test.
 
 Raw configurations, caches, logs, screenshots, and portable content remain in
 ignored `evidence/local/` and must not be committed or attached publicly.

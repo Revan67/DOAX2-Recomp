@@ -212,8 +212,9 @@ copyrighted game files.
 - Phase 2 baseline on pinned Xenia Canary `02d2cb5` now reaches the title and
   profile gate, campaign cinematic, character selection, Helena's opening beach
   dialogue, and the Day 1 Morning island interface under D3D12/XAudio2. Xbox
-  controller input and title-specific save creation are verified. Save reload,
-  activity completion, audio correctness, and detailed renderer behavior remain
+  controller input, multiple Day 1 activities, title-specific autosave creation,
+  clean Poolside exit, and save reload after emulator restart are verified.
+  Full-day coverage, audio correctness, and detailed renderer behavior remain
   open before the Phase 2 exit gate.
 
 ## Explicit non-goals for the bootstrap stage
