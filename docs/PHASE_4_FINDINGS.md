@@ -73,3 +73,22 @@ at `0x82A1ECC0`. Strict regeneration identifies it as a substantive function,
 not another callback thunk, and accepts it without unresolved or fatal output.
 The next controlled launch will begin from this expanded 18,251-function set.
 
+That launch advanced again, to unregistered address `0x82A49E58`. The address
+immediately follows the known 32-byte indirect thunk at `0x82A49E38`; the next
+existing discovered function begins at `0x82A49F28`. Strict regeneration shows
+three additional 32-byte thunks at `0x82A49E58`, `0x82A49E78`, and
+`0x82A49E98`, followed by a substantive missed function at `0x82A49EB8`.
+Addresses inside that final function were explicitly rejected as entry points
+rather than retained as artificial function fragments.
+
+The corrected 18,255-function build survived through that group and next
+selected `0x82A4A308`. Although it lies between two known indirect thunks, the
+gap is larger than a single thunk and its surrounding data-argument pattern
+does not justify inferring additional starts. Only the runtime-proven address
+is therefore declared pending strict regeneration.
+
+That function advanced launch to `0x82A4A640`, exactly after the 32-byte thunk
+at `0x82A4A620` and 16 bytes before the known `0x82A4A650` function. Only this
+runtime-selected address is added for validation; no neighboring starts are
+inferred from such a short gap.
+
