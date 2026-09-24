@@ -16,15 +16,18 @@ No playable recompilation or launcher is available yet.
 - Phase 0: public repository and evidence boundary complete.
 - Phase 1: base-disc and executable inventory complete.
 - Phase 2: pinned Xenia behavioral oracle complete through Day 2 progression.
-- Phase 3: deterministic strict ReXGlue translation established; startup-call
-  mapping is in progress.
+- Phase 3: complete; deterministic translation and bounded startup/subsystem
+  maps are established.
+- Phase 4: active; the first native Windows Debug host compiles and links, with
+  execution bring-up next.
 
 The verified source target is identified by public hashes and metadata, but the
 source game and generated translations are never distributed here. See the
 [roadmap](docs/ROADMAP.md), [Phase 1 findings](docs/PHASE_1_FINDINGS.md),
 [Phase 2 baseline](docs/PHASE_2_BASELINE.md), and
 [Phase 3 findings](docs/PHASE_3_FINDINGS.md), including the bounded
-[controller input boundary](docs/INPUT_BOUNDARY.md).
+[controller input boundary](docs/INPUT_BOUNDARY.md), and
+[Phase 4 host-runtime findings](docs/PHASE_4_FINDINGS.md).
 
 ## What this repository will contain
 

@@ -188,12 +188,11 @@ copyrighted game files.
 
 ## Immediate work queue
 
-1. Add repository hygiene automation.
-2. Record the ISO hash and non-content metadata.
-3. Select and pin the extraction/recompilation toolchain.
-4. Extract into an ignored directory and create the executable/content inventory.
-5. Extend static analysis from the pinned Phase 1 toolchain proof.
-6. Enumerate unsupported and ambiguous translation constructs.
+1. Make the pinned SDK's Windows Clang build workarounds reproducible.
+2. Launch the native diagnostic build with structured logging enabled.
+3. Verify guest memory and XEX image initialization.
+4. Reach and instrument `xstart` at `0x82784C18`.
+5. Implement only the first missing kernel/XAM boundary on the startup path.
 
 ## Current progress
 
@@ -217,12 +216,16 @@ copyrighted game files.
   boundary, and progression through Day 2 Daytime are verified. No audio,
   renderer, or timing issues were observed on this bounded route. The active
   project focus is now Phase 3 toolchain proof and static analysis.
-- Phase 3 strict ReXGlue translation now completes deterministically without
-  force mode after declaring three missed compiler-generated entry points. A
-  repeat run produced 249 unchanged files and no unresolved, unsupported, or
-  fatal generated markers. The first direct startup layer from `xstart` is
-  classified; transitive mapping below the game-owned dispatcher candidate is
-  the next active task.
+- Phase 3 is complete. Strict ReXGlue translation completes deterministically
+  without force mode after declaring three missed compiler-generated entry
+  points. A repeat run produced 249 unchanged files and no unresolved,
+  unsupported, or fatal generated markers. Startup, dispatcher, presentation,
+  and controller boundaries are mapped, while remaining indirect areas are
+  explicitly recorded.
+- Phase 4 is active. The Windows x86-64 Debug host and all 121 generated
+  translation partitions compile and link against the pinned SDK. Two SDK-side
+  Windows Clang integration issues and their tested local workarounds are
+  recorded in `docs/PHASE_4_FINDINGS.md`. Native execution is the next gate.
 
 ## Explicit non-goals for the bootstrap stage
 
