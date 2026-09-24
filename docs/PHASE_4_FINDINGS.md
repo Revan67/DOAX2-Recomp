@@ -50,3 +50,26 @@ Next work:
 3. Record the earliest repeatable runtime checkpoint and the first undefined or
    failing import, without treating a created window as successful boot.
 
+## First execution result
+
+The first run with an explicit ignored game-data root successfully initialized
+guest virtual and physical memory, MMIO, input, audio, the virtual filesystem,
+and the function dispatcher. It loaded the supported XEX, registered 18,245
+translated functions, created 73 XAM and 156 kernel import symbols, and reached
+module-launch preparation.
+
+The first live-dispatch failure was an indirect call to unregistered guest
+address `0x82A1B3F0`. This aligned address is within the executable code range
+and immediately follows the discovered `0x82A1B3D0` thunk. It has therefore
+been added as a minimal function-discovery hint for strict regeneration. The
+next run advanced to `0x82A1B410`, revealing a contiguous family of 32-byte
+indirect callback thunks. Static regeneration confirmed the fixed-size pattern
+through the next already discovered function at `0x82A1B490`; the intervening
+aligned starts `0x82A1B410`, `0x82A1B430`, `0x82A1B450`, and `0x82A1B470` are
+now declared together rather than discovered through repeated crashing runs.
+
+With that family present, module launch advanced to a second missed entry point
+at `0x82A1ECC0`. Strict regeneration identifies it as a substantive function,
+not another callback thunk, and accepts it without unresolved or fatal output.
+The next controlled launch will begin from this expanded 18,251-function set.
+
