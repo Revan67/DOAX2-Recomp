@@ -92,3 +92,23 @@ at `0x82A4A620` and 16 bytes before the known `0x82A4A650` function. Only this
 runtime-selected address is added for validation; no neighboring starts are
 inferred from such a short gap.
 
+The 18,257-function run then reached `0x82A54F30`. It immediately follows the
+known 32-byte thunk at `0x82A54F10`, but the next known function is 64 bytes
+later at `0x82A54F70`. Only `0x82A54F30` is declared; strict regeneration must
+establish its body before any further address is considered.
+
+Strict regeneration established `0x82A54F30` as a complete 32-byte indirect
+callback thunk ending at `0x82A54F50`. The remaining bytes before
+`0x82A54F70` are not declared as code without independent runtime evidence.
+
+The next controlled run supplied that evidence by dispatching directly to
+`0x82A54F50`. This exactly fills the final 32-byte slot before the known
+`0x82A54F70` function. Strict regeneration confirms it is the second complete
+indirect callback thunk in the pair.
+
+With both callbacks present, the 18,259-function run advanced to
+`0x82A55220`. It lies immediately after the known 32-byte callback thunk at
+`0x82A55200` and 16 bytes before the known function at `0x82A55230`. Only the
+runtime-selected address was declared. Strict regeneration confirms it is a
+complete 16-byte tail-call thunk to `sub_829ECB08`.
+
