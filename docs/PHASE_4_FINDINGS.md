@@ -137,3 +137,18 @@ thunk ending at `0x82A56A98`; the remaining slot is left unclassified.
 The next run dispatched to `0x82A56A98`, directly proving that remaining slot.
 Strict regeneration confirms it is a complete 32-byte indirect callback thunk
 ending exactly at the known `0x82A56AB8` boundary.
+
+The 18,264-function build next dispatched to `0x82A59000`. It follows the
+known callback thunk at `0x82A58FE0`, but the next known function does not
+begin until `0x82A59100`. Because that gap is too large to classify by pattern,
+only the runtime-selected address is declared. Strict regeneration confirms it
+is a complete 32-byte indirect callback thunk ending at `0x82A59020`.
+
+The next controlled run then dispatched directly to `0x82A59020`, proving the
+following entry independently. Strict regeneration confirms another complete
+32-byte callback thunk ending at `0x82A59040`; the rest of the gap before
+`0x82A59100` remains unclassified.
+
+Runtime next selected `0x82A59040`, proving a third entry in this local group.
+Strict regeneration confirms it is a complete 32-byte indirect callback thunk
+ending at `0x82A59060`. The remaining gap is still not extrapolated.
