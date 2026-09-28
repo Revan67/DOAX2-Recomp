@@ -112,3 +112,28 @@ With both callbacks present, the 18,259-function run advanced to
 runtime-selected address was declared. Strict regeneration confirms it is a
 complete 16-byte tail-call thunk to `sub_829ECB08`.
 
+The resulting 18,260-function build remained active until the bounded runner
+terminated its fatal dialog and reported the next dispatch at `0x82A568C8`.
+This address follows the known 32-byte callback thunk at `0x82A568A8`, but the
+next known function does not begin until `0x82A56940`. Only the runtime-proven
+entry is declared pending strict regeneration; no additional starts are
+inferred across that larger gap.
+
+Strict regeneration confirms `0x82A568C8` is a complete 32-byte indirect
+callback thunk ending at `0x82A568E8`. The remaining bytes before
+`0x82A56940` are still treated as unclassified until runtime selects them.
+
+The next controlled run selected `0x82A568E8`, providing direct evidence for
+the following slot. Strict regeneration shows that it is a substantive
+88-byte function ending exactly at the known `0x82A56940` entry, so no
+additional function starts are inferred within its body.
+
+That build advanced to `0x82A56A78`. It immediately follows the known
+32-byte callback thunk at `0x82A56A58`, while the next known function begins
+64 bytes later at `0x82A56AB8`. Only the runtime-selected address is declared
+for strict regeneration. It validates as a complete 32-byte indirect callback
+thunk ending at `0x82A56A98`; the remaining slot is left unclassified.
+
+The next run dispatched to `0x82A56A98`, directly proving that remaining slot.
+Strict regeneration confirms it is a complete 32-byte indirect callback thunk
+ending exactly at the known `0x82A56AB8` boundary.
