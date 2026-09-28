@@ -178,3 +178,15 @@ This address follows the known function at `0x82A59AE0` and lies only 16 bytes
 before the known `0x82A59B10` function. Only the runtime-selected address is
 declared. Strict regeneration confirms a complete 16-byte tail-call thunk to
 `sub_829ECB08`.
+
+The next build advanced to `0x82A5E780`. It follows the known 32-byte callback
+thunk at `0x82A5E760`, while the next known function begins at `0x82A5E7F0`.
+Only the runtime-selected address was declared across that 112-byte gap.
+Strict regeneration shows a substantive function that fills the gap exactly
+and returns at the known `0x82A5E7F0` boundary.
+
+The following launch advanced to `0x82A5ECD8`. It immediately follows the
+known callback thunk at `0x82A5ECB8`, while the next known function starts 112
+bytes later at `0x82A5ED48`. Only the runtime-selected address is declared for
+strict regeneration. It validates as a substantive 112-byte function that
+fills the gap exactly and returns at the known boundary.
