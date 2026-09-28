@@ -164,3 +164,17 @@ strictly validates as a complete 32-byte indirect callback thunk ending at
 The next controlled run dispatched to `0x82A590A0`, independently proving a
 sixth entry in this group. Strict regeneration confirms another complete
 32-byte indirect callback thunk ending at `0x82A590C0`.
+
+The following run dispatched to `0x82A590C0`, directly proving the seventh
+entry in this group. Strict regeneration confirms another complete 32-byte
+callback thunk ending at `0x82A590E0`.
+
+Runtime then dispatched to `0x82A590E0`, proving the final 32-byte slot before
+the known function at `0x82A59100`. Strict regeneration confirms a complete
+32-byte indirect callback thunk, completing the runtime-evidenced sequence.
+
+With that callback family complete, the next launch advanced to `0x82A59B00`.
+This address follows the known function at `0x82A59AE0` and lies only 16 bytes
+before the known `0x82A59B10` function. Only the runtime-selected address is
+declared. Strict regeneration confirms a complete 16-byte tail-call thunk to
+`sub_829ECB08`.
