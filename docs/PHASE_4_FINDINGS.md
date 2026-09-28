@@ -152,3 +152,15 @@ following entry independently. Strict regeneration confirms another complete
 Runtime next selected `0x82A59040`, proving a third entry in this local group.
 Strict regeneration confirms it is a complete 32-byte indirect callback thunk
 ending at `0x82A59060`. The remaining gap is still not extrapolated.
+
+The next run dispatched to `0x82A59060`, directly proving the following entry.
+Strict regeneration confirms a fourth complete 32-byte callback thunk ending
+at `0x82A59080`; later addresses remain unclassified until selected by runtime.
+
+Runtime then selected `0x82A59080`, proving the fifth entry in this group. It
+strictly validates as a complete 32-byte indirect callback thunk ending at
+`0x82A590A0`, without assuming another entry at that aligned boundary.
+
+The next controlled run dispatched to `0x82A590A0`, independently proving a
+sixth entry in this group. Strict regeneration confirms another complete
+32-byte indirect callback thunk ending at `0x82A590C0`.
