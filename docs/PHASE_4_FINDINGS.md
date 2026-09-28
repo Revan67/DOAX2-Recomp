@@ -190,3 +190,13 @@ known callback thunk at `0x82A5ECB8`, while the next known function starts 112
 bytes later at `0x82A5ED48`. Only the runtime-selected address is declared for
 strict regeneration. It validates as a substantive 112-byte function that
 fills the gap exactly and returns at the known boundary.
+
+The next build advanced to `0x82A5F350`. It follows the known callback thunk
+at `0x82A5F330`, but the next known function begins 192 bytes later at
+`0x82A5F410`. Only the runtime-selected address is declared across this larger
+gap. Strict regeneration confirms a complete 32-byte callback thunk ending at
+`0x82A5F370`; the remaining 160 bytes stay unclassified.
+
+Runtime next selected `0x82A5F370`, independently proving the following entry.
+Strict regeneration confirms another complete 32-byte callback thunk ending
+at `0x82A5F390`; the remaining 128 bytes stay unclassified.
