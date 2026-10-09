@@ -200,3 +200,11 @@ gap. Strict regeneration confirms a complete 32-byte callback thunk ending at
 Runtime next selected `0x82A5F370`, independently proving the following entry.
 Strict regeneration confirms another complete 32-byte callback thunk ending
 at `0x82A5F390`; the remaining 128 bytes stay unclassified.
+
+The next controlled launch selected `0x82A5F390`. Strict regeneration confirms
+a complete 32-byte indirect callback thunk ending at `0x82A5F3B0`. The
+remaining 96 bytes before `0x82A5F410` remain unclassified.
+
+The rebuilt launcher registers 18,278 functions and advances to an unregistered
+dispatch at `0x82A5F3B0`. That runtime-proven address is the next entry to
+validate; it has not yet been added to the manifest.
