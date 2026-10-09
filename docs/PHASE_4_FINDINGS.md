@@ -208,3 +208,13 @@ remaining 96 bytes before `0x82A5F410` remain unclassified.
 The rebuilt launcher registers 18,278 functions and advances to an unregistered
 dispatch at `0x82A5F3B0`. That runtime-proven address is the next entry to
 validate; it has not yet been added to the manifest.
+
+Strict regeneration of `0x82A5F3B0` confirms a substantive 96-byte initializer
+ending at the known `0x82A5F410` boundary. The rebuilt launcher registers
+18,279 functions and passes module preparation into guest thread activity,
+graphics ring-buffer calls, sound-directory access, and XAudio registration.
+Two probes exit with code 3 without a logged unregistered-function fatal.
+The logs show `StfsCreateDevice` is stubbed, `cache:` points to an unresolved
+device, and graphics initialization has no GPU plugin loaded. These are
+observed limitations, not yet established causes of the abort. The next
+diagnostic step is to capture the abort stack before changing runtime behavior.
