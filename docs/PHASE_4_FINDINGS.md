@@ -218,3 +218,18 @@ The logs show `StfsCreateDevice` is stubbed, `cache:` points to an unresolved
 device, and graphics initialization has no GPU plugin loaded. These are
 observed limitations, not yet established causes of the abort. The next
 diagnostic step is to capture the abort stack before changing runtime behavior.
+
+## Confirmed XMP abort
+
+A local-only SIGABRT diagnostic hook captured the native stack through
+`XmpApp::DispatchMessageSync`, `AppManager::DispatchMessageAsync`, and
+`XMsgStartIORequest`, called from guest `sub_82995088`. The runtime log records
+`XMPCaptureOutput(...)` immediately before the abort. In pinned SDK c94f5eb,
+message `0x0007003D` deliberately calls `assert_always` in the unimplemented
+capture-output handler before its `X_E_FAIL` return. This establishes the
+cause of this abort independently of the cache and graphics warnings.
+
+Next, make this unsupported request return its existing failure result without
+asserting, then probe the caller's behavior. This does not implement music
+capture; success must not be fabricated. The diagnostic hook and captured
+stack remain under the ignored local bootstrap directory.
